@@ -1,77 +1,83 @@
 package pl.droidsonroids.berlinclock.ui;
 
 public interface MainView {
-    void showSecondsOn();
-    void showSecondsOff();
+	void showSecondsOn();
 
-    void showHourUpOn(int i);
-    void showHourUpOff(int i);
+	void showSecondsOff();
 
-    void showHourBottomOn(int i);
-    void showHourBottomOff(int i);
+	void showHourUpOn(int i);
 
-    void showMinutesUpYellowOn(int i);
-    void showMinutesUpYRedOn(int i);
-    void showMinutesUpOff(int i);
+	void showHourUpOff(int i);
 
-    void showMinutesBottomOn(int i);
-    void showMinutesBottomOff(int i);
+	void showHourBottomOn(int i);
 
-    class EmptyMainView implements MainView {
+	void showHourBottomOff(int i);
 
-        @Override
-        public void showSecondsOn() {
+	void showMinutesUpYellowOn(int i);
 
-        }
+	void showMinutesUpYRedOn(int i);
 
-        @Override
-        public void showSecondsOff() {
+	void showMinutesUpOff(int i);
 
-        }
+	void showMinutesBottomOn(int i);
 
-        @Override
-        public void showHourUpOn(int i) {
+	void showMinutesBottomOff(int i);
 
-        }
+	class EmptyMainView implements MainView {
 
-        @Override
-        public void showHourUpOff(int i) {
+		@Override
+		public void showSecondsOn() {
 
-        }
+		}
 
-        @Override
-        public void showHourBottomOn(int i) {
+		@Override
+		public void showSecondsOff() {
 
-        }
+		}
 
-        @Override
-        public void showHourBottomOff(int i) {
+		@Override
+		public void showHourUpOn(int i) {
 
-        }
+		}
 
-        @Override
-        public void showMinutesUpYellowOn(int i) {
+		@Override
+		public void showHourUpOff(int i) {
 
-        }
+		}
 
-        @Override
-        public void showMinutesUpYRedOn(int i) {
+		@Override
+		public void showHourBottomOn(int i) {
 
-        }
+		}
 
-        @Override
-        public void showMinutesUpOff(int i) {
+		@Override
+		public void showHourBottomOff(int i) {
 
-        }
+		}
 
-        @Override
-        public void showMinutesBottomOn(int i) {
+		@Override
+		public void showMinutesUpYellowOn(int i) {
 
-        }
+		}
 
-        @Override
-        public void showMinutesBottomOff(int i) {
+		@Override
+		public void showMinutesUpYRedOn(int i) {
 
-        }
-    }
+		}
+
+		@Override
+		public void showMinutesUpOff(int i) {
+
+		}
+
+		@Override
+		public void showMinutesBottomOn(int i) {
+
+		}
+
+		@Override
+		public void showMinutesBottomOff(int i) {
+
+		}
+	}
 }
