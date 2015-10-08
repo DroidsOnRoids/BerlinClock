@@ -44,7 +44,7 @@ public class MainPresenterImpl implements MainPresenter {
         setCurrentTime(currentTime);
     }
 
-    private void setCurrentTime(String currentTime) {
+    void setCurrentTime(String currentTime) {
         String[] berlinTime = berlinClock.convertToBerlinTime(currentTime);
 
         manageSeconds(berlinTime[0]);
@@ -102,5 +102,13 @@ public class MainPresenterImpl implements MainPresenter {
                 mainView.showMinutesBottomOff(i);
             }
         }
+    }
+
+    public void setBerlinClock(BerlinClock berlinClock) {
+        this.berlinClock = berlinClock;
+    }
+
+    MainView getMainView() {
+        return mainView;
     }
 }
