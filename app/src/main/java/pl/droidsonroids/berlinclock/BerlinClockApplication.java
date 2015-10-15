@@ -1,9 +1,11 @@
 package pl.droidsonroids.berlinclock;
 
 import android.app.Application;
+import android.os.StrictMode;
 
 import pl.droidsonroids.berlinclock.dagger.AppGraph;
 import pl.droidsonroids.berlinclock.dagger.main.MainGraph;
+import pl.droidsonroids.berlinclock.model.BerlinClock;
 import pl.droidsonroids.berlinclock.ui.MainView;
 
 public class BerlinClockApplication extends Application {
@@ -12,6 +14,7 @@ public class BerlinClockApplication extends Application {
 
 	@Override
 	public void onCreate() {
+		StrictMode.setVmPolicy(new StrictMode.VmPolicy.Builder().setClassInstanceLimit(BerlinClock.class, 1).penaltyLog().penaltyDeath().build());
 		super.onCreate();
 		sInstance = this;
 		appGraph = AppGraph.Initializer.init(this);
