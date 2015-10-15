@@ -32,13 +32,48 @@ public class SingletonsTest {
 
 	@Test
 	public void testSingletonFail() throws Exception {
-		Runnable worker = new Runnable() {
-			@Override
-			public void run() {
-				LazyFakeSingleton.geInstance();
-			}
-		};
-		new Thread(worker).start();
-		new Thread(worker).start();
+		startConcurrentThreads(lazyWorker);
+	}
+
+	@Test
+	public void testDoubleCheckedSingleton() throws Exception {
+		startConcurrentThreads(doubleCheckedWorker);
+	}
+
+	@Test
+	public void testLuckyThreadOrder() throws Exception {
+		final Thread thread0 = new Thread(lazyWorker);
+		thread0.start();
+		thread0.join();
+
+		final Thread thread1 = new Thread(lazyWorker);
+		thread1.start();
+
+		thread1.join();
+	}
+
+	final Runnable lazyWorker = new Runnable() {
+		@Override
+		public void run() {
+			LazySingleton.geInstance();
+		}
+	};
+
+	final Runnable doubleCheckedWorker = new Runnable() {
+		@Override
+		public void run() {
+			DoubleCheckedLockingLazySingleton.geInstance();
+		}
+	};
+
+	private void startConcurrentThreads(Runnable lazyWorker) throws InterruptedException {
+		final Thread thread0 = new Thread(lazyWorker);
+		thread0.start();
+
+		final Thread thread1 = new Thread(lazyWorker);
+		thread1.start();
+
+		thread0.join();
+		thread1.join();
 	}
 }

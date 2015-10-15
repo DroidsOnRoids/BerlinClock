@@ -4,7 +4,7 @@ public class LazySingleton {
 	public static final String TAG = LazySingleton.class.getSimpleName();
 
 	private LazySingleton() {
-		TestLogPrinter.println(TAG + " created");
+		TestLogPrinter.println(TAG + " created in " + Thread.currentThread());
 	}
 
 	private static LazySingleton sInstance;

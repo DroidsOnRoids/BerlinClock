@@ -3,6 +3,7 @@
     package="pl.droidsonroids.berlinclock" >
 
     <application
+        android:process=":p1.droidsonroids.test"
         android:allowBackup="true"
         android:icon="@mipmap/ic_launcher"
         android:label="@string/app_name"
@@ -17,6 +18,15 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
+        <activity
+            android:name=".ui.EmptyActivity2"
+            android:label="@string/app_name"
+            android:screenOrientation="portrait"/>
+        <activity
+            android:process=":pI.droidsonroids.test"
+            android:name=".ui.EmptyActivity"
+            android:label="@string/app_name"
+            android:screenOrientation="portrait"/>
     </application>
 
 </manifest>
