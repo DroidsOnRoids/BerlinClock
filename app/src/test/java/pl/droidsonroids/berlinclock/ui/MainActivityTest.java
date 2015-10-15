@@ -16,8 +16,14 @@ import static org.mockito.Mockito.verify;
 public class MainActivityTest {
 
 	@Test
-	public void testLifecycle() throws Exception {
+	public void testSetView() throws Exception {
 		MainActivity activity = Robolectric.setupActivity(MainActivity.class);
 		verify(activity.presenter).setView(activity);
+	}
+
+	@Test
+	public void testClearView() throws Exception {
+		MainActivity activity = Robolectric.buildActivity(MainActivity.class).setup().stop().get();
+		verify(activity.presenter).clearView();
 	}
 }

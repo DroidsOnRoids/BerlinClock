@@ -1,9 +1,15 @@
 package pl.droidsonroids.berlinclock.model;
 
+import android.util.Log;
+
 import java.util.ArrayList;
 import java.util.List;
 
 public class BerlinClock {
+
+	public BerlinClock() {
+		Log.e("BerlinClock", "BerlinClock()");
+	}
 
 	public String[] convertToBerlinTime(String time) {
 
